@@ -1,0 +1,28 @@
+.login{
+    background-color: #D7E6E1;
+}
+
+.login__container{
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__container > img{
+    width: 100px;
+    height: 100px;
+}
+.login__container > button{
+    background-color: #00BB3C;
+    color: #D7E6E1;
+}
+
+.login__container > button:hover{
+    color: #00BB3C;
+    background-color: #D7E6E1;
+}
+.login_text{
+    padding: 0 0 15px 0;
+}

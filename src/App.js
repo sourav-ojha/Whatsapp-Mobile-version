@@ -7,7 +7,6 @@ import Sidebar from "./components/Sidebar";
 import { useStateValue } from "./helpers/StateProvider";
 function App() {
   const [{ user }, dispatch] = useStateValue();
-
   return (
     <div className="App">
       {!user ? (
@@ -29,5 +28,5 @@ function App() {
     </div>
   );
 }
-
+ 
 export default App;

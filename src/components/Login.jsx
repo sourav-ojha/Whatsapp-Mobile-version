@@ -7,13 +7,15 @@ import "./css/Login.css";
 function Login() {
   const [{}, dispatch] = useStateValue();
 
-  const signin = () => {
-    auth
+  const signin = async () => {
+    await auth
       .signInWithPopup(provider)
       .then((result) => {
+        localStorage.setItem('currentUser', JSON.stringify(result))
         dispatch({
           type: actionTypes.SET_USER,
           user: result.user,
+          token: result.credential.accessToken,
         });
       })
       .catch((error) => alert(error.message));

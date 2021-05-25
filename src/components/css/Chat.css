@@ -47,11 +47,12 @@ p {
   position: relative;
   font-size: 16px;
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 10px;
   width: fit-content;
   background-color: #ffffff;
   margin-bottom: 30px;
   margin-top: 15px;
+  border:  1px solid #edc5c5;
 }
 
 .chat__name {
@@ -71,6 +72,7 @@ p {
 .chat__receiver {
   margin-left: auto;
   background-color: #dcf8c6;
+  border-radius: 10px 10px 0;
 }
 .chat__footer {
   display: flex;

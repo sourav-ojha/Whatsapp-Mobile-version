@@ -6,13 +6,14 @@ import "./css/Sidebar.css";
 import { DonutLarge, MoreVert, Search } from "@material-ui/icons";
 import { IconButton, Avatar } from "@material-ui/core";
 import { useStateValue } from "../helpers/StateProvider";
+import { actionTypes } from "../helpers/reducer";
 
 export default function Sidebar() {
   const [rooms, setRooms] = useState([]);
   const [{ user }, dispatch] = useStateValue();
 
   useEffect(() => {
-  const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
+    const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
       setRooms(
         snapshot.docs.map((doc) => ({
           id: doc.id,
@@ -22,7 +23,7 @@ export default function Sidebar() {
     );
     return () => {
       unsubscribe();
-    } 
+    };
   }, []);
 
   const createChat = () => {
@@ -36,6 +37,11 @@ export default function Sidebar() {
     }
   };
 
+  const logout = () => {
+    localStorage.removeItem("currentUser");
+    dispatch({ type: actionTypes.REMOVE_USER });
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
@@ -44,15 +50,19 @@ export default function Sidebar() {
           <IconButton>
             <DonutLarge />
           </IconButton>
-          <div className="chatIcon">
-
-          <IconButton>
-            <ChatIcon  />
-            <div className="create_chat" onClick={createChat}>Create Room</div>
+          <IconButton className="chatIcon">
+            <ChatIcon />
+            <div className="create_chat" onClick={createChat}>
+              {" "}
+              Create Room
+            </div>
           </IconButton>
-          </div>
-          <IconButton>
+          <IconButton className="logout_icon">
             <MoreVert />
+            <div className="logout" onClick={logout}>
+              {" "}
+              Log Out 
+            </div>
           </IconButton>
         </div>
       </div>
@@ -68,7 +78,6 @@ export default function Sidebar() {
         </div>
       </div>
       <div className="sidebar__chats">
-        
         {rooms.map((room) => (
           <SidebarChats key={room.id} id={room.id} name={room.data.name} />
         ))}

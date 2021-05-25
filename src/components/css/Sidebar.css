@@ -22,10 +22,7 @@
 .create_chat{
     display: none;
 }
-.create_chat:hover{
-    background-color: lightgray;
-    color: black;
-}
+
 .chatIcon:hover .create_chat{
     position: absolute;
     width: 100px;
@@ -37,10 +34,26 @@
     border: 1px solid lightgray;
     padding: 10px;
     box-shadow: 1px 1px;
-    border-radius: 10px;
-    
+    border-radius: 10px; 
 }
 
+.logout{
+    display: none;
+}
+
+.logout_icon:hover .logout{
+    position: absolute;
+    width: 100px;
+    top: 50px;
+    right: 0px;
+    display: block;
+    font-size: 15px;
+    background-color: white;
+    border: 1px solid lightgray;
+    padding: 10px;
+    box-shadow: 1px 1px;
+    border-radius: 10px; 
+}
 
 .sidebar__search{
     display: flex;

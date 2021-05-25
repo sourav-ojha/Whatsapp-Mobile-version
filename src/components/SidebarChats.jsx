@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import db from "../services/firebase";
 import "./css/SidebarChats.css";
 
-function SidebarChats({ id, name, addNewChat }) {
+function SidebarChats({ id, name }) {
   const [seed, setSeed] = useState(0);
   const [messages, setMessages] = useState("");
   useEffect(() => {
